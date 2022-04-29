@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="post" action="">
+<form method="post" action="./Inscription.php">
     <div>
         <label for="id-username">Username</label>
         <input type="text" name="username" id="id-username" required>
@@ -17,6 +17,11 @@
         <label for="id-age">Your age</label>
         <input type="number" name="age" id="id-age" min="18" max="120" required>
     </div>
+    <div>
+        <label for="id-email">Your Email</label>
+        <input type="text" name="email" id="id-email" minlength="18" maxlength="100" required>
+    </div>
+
     <div>
         <label for="id-password">Password</label>
         <input type="password" name="password" id="id-password" minlength="6" maxlength="24" required>
@@ -29,6 +34,8 @@
         <input type="submit" value="Envoyer" name="submit">
     </div>
 </form>
+
+<script src="/Asset/form.js"></script>
 </body>
 </html>
 
