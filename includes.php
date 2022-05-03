@@ -1,11 +1,10 @@
 <?php
 
 
-require __DIR__ . "User/Inscription.php";
-require __DIR__ . "User/Connexion.php";
 
-require __DIR__ . "Partials/header.php";
-require __DIR__ . "Partials/footer.php";
+
+require __DIR__ . "/Partials/header.php";
+require __DIR__ . "/Partials/footer.php";
 
 require __DIR__ . '/Model/Database.php';
 require __DIR__ . '/Model/Entity/AbstractEntity.php';

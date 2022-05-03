@@ -8,4 +8,7 @@
         <label for="id-password">Password</label>
         <input type="password" name="password" id="id-password" minlength="6" maxlength="24" required>
     </div>
+    <div>
+        <input type="submit" value="Envoyer" name="submit">
+    </div>
 </form>
