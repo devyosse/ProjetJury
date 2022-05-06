@@ -1,6 +1,6 @@
 <?php
 
-use App\Model\Entity\AbstractEntity;
+namespace App\Model\Entity;
 
 class Role extends AbstractEntity
 {
@@ -16,7 +16,7 @@ class Role extends AbstractEntity
 
     /**
      * @param string|null $roleName
-     * @return \App\Model\Entity\Role
+     * @return Role
      */
     public function setRoleName(?string $roleName): self
     {
