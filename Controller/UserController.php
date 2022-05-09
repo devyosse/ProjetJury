@@ -8,9 +8,6 @@ if (isset($_GET['success']) && intval($_GET['success']) === 1){ ?>
     <div class="error">Votre mot de passe doit contenir au moins une lettre en majuscules, en miniscules, etc..</div> <?php
 }
 
-
-
-
 //vérif des champs
 if(isset($_POST['username']) && isset($_POST['age']) && isset($_POST['password']) && isset($_POST['password-repeat']) && isset($_POST['email'])) {
     //retrait des tags html pas de stockage de page ou de comm en bdd
@@ -33,13 +30,11 @@ if(isset($_POST['username']) && isset($_POST['age']) && isset($_POST['password']
 
 
     //données traitées, redirection de l'utilisateur, commenté pour voir les données
-    //header('Location : ../index.php?success=1');
+    header('Location : ../index.php?success=1');
 }
 else{
     header('Location : ../index.php?success=0');
 }
-
-
 
 function cleanup($data, $min=null, $max=null): string {
     $data = trim($data);
