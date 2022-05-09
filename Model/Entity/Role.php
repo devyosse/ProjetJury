@@ -2,6 +2,8 @@
 
 namespace App\Model\Entity;
 
+use AbstractEntity;
+
 class Role extends AbstractEntity
 {
     private ?string $roleName;
