@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../includes.php';
+?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -38,6 +42,8 @@
 <script src="../Asset/form.js"></script>
 </body>
 </html>
+
+
 
 
 
