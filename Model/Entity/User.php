@@ -1,7 +1,7 @@
 <?php
 
 
-class User
+class User extends AbstractEntity
 {
     private string $email;
     private string $firstname;

@@ -1,6 +1,8 @@
 <?php
 
 use App\Routing\AbstractRouter;
+use App\Routing\HomeRouter;
+use App\Routing\UserRouter;
 
 require __DIR__ . './includes.php';
 

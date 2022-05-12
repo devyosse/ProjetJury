@@ -1,5 +1,5 @@
 
-<form>
+<form method="post" action="">
     <div>
         <label for="id-username">Username</label>
         <input type="text" name="username" id="id-username" required>

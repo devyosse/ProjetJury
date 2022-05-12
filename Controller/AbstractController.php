@@ -16,7 +16,7 @@ abstract class AbstractController
     public function render(string $template, array $data = [])
     {
         ob_start();
-        require __DIR__ . '/../' . $template;
+
         $html = ob_get_clean();
         require __DIR__ . '/../index.php';
         exit;
