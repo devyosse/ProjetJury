@@ -38,7 +38,7 @@ abstract class AbstractRouter
 
 
     /**
-     * Remove potentially unsecured things.
+     * Remove unsecured things.
      * @param string|null $param
      * @return string
      */

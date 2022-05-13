@@ -9,8 +9,14 @@ require __DIR__ . './includes.php';
 
 session_start();
 
-$page = AbstractRouter::secure($_GET['c']) ?? 'home';
-$method = AbstractRouter::secure($_GET['a']) ?? 'index';
+$page = AbstractRouter::secure($_GET['c']);
+if($page === null) {
+    $page = 'home';
+}
+$method = AbstractRouter::secure($_GET['a']);
+if($method) {
+    $method = 'index';
+}
 
 // Defining the right controller.
 switch ($page) {

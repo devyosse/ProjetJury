@@ -16,9 +16,8 @@ abstract class AbstractController
     public function render(string $template, array $data = [])
     {
         ob_start();
-
+        require __DIR__ . '/../view/' . $template;
         $html = ob_get_clean();
-        require __DIR__ . '/../index.php';
         exit;
     }
 
@@ -64,7 +63,7 @@ abstract class AbstractController
     public function redirectIfNotConnected(): void
     {
         if (!self::isUserConnected()) {
-            $this->render('home/index');
+            $this->render('index.php');
         }
     }
 
@@ -74,7 +73,7 @@ abstract class AbstractController
     public function redirectIfConnected(): void
     {
         if (self::isUserConnected()) {
-            $this->render('home/index');
+            $this->render('/index.php');
         }
     }
 
@@ -86,7 +85,7 @@ abstract class AbstractController
     public function redirectIfNotGranted(string $role): void
     {
         if (!self::isUserConnected()) {
-            $this->render('home/index');
+            $this->render('index.php');
             return;
         }
 
@@ -95,7 +94,7 @@ abstract class AbstractController
         }, ($_SESSION['user'])->getRoles());
 
         if (!in_array($role, $userRoles)) {
-            $this->render('home/index');
+            $this->render('index.php');
         }
     }
 }

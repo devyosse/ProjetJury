@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '../includes.php';
+require __DIR__ . '/../../includes.php';
 ?>
 
 <!doctype html>
@@ -12,7 +12,7 @@ require __DIR__ . '../includes.php';
     <title>Inscription</title>
 </head>
 <body>
-<form method="post" action="../GalaxyPhone/GalaxyNew.php">
+<form method="post" action="../../GalaxyPhone/GalaxyNew.php">
     <div>
         <label for="id-username">Username</label>
         <input type="text" name="username" id="id-username" required>
@@ -39,7 +39,7 @@ require __DIR__ . '../includes.php';
     </div>
 </form>
 
-<script src="../Asset/form.js"></script>
+<script src="../../Asset/form.js"></script>
 </body>
 </html>
 

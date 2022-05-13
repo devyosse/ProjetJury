@@ -1,7 +1,6 @@
 <?php
 
 use App\Controller\AbstractController;
-use App\Model\Entity\User;
 use App\Model\Manager\RoleManager;
 use App\Model\Manager\UserManager;
 
@@ -18,19 +17,6 @@ class UserController extends AbstractController
             'users_list' => UserManager::getAll()
         ]);
     }
-
-    /**
-     * Fetch and display some users statistics.
-     * @return void
-     */
-    public function showStats()
-    {
-        $this->render('user/statistics', [
-            'users_count' => UserManager::getUsersCount(),
-            'min_age' => UserManager::getMinAge()
-        ]);
-    }
-
 
     /**
      * Display a specific user information.
@@ -52,7 +38,6 @@ class UserController extends AbstractController
 
     // TODO
     public function editUser(int $id, string $category) {
-        echo "edit piaf";
         var_dump([
             '$id' => $id,
             '$category' => $category,
@@ -127,7 +112,7 @@ class UserController extends AbstractController
                 $_SESSION['errors'] = $errors;
             }
             else {
-                // C'est ok, pas d'erreurs, enregistrement.
+                //pas d'erreurs, enregistrement.
                 $user = new User();
                 $role = RoleManager::getRoleByName('user');
                 $user
@@ -156,7 +141,7 @@ class UserController extends AbstractController
             }
 
         }
-        $this->render('user/register');
+        $this->render('view/User/Inscription.php');
     }
 
 
@@ -173,7 +158,7 @@ class UserController extends AbstractController
             session_destroy();
         }
 
-        $this->render('home/index');
+        $this->render('index.php');
     }
 
 
@@ -206,6 +191,6 @@ class UserController extends AbstractController
             }
         }
 
-        $this->render('user/login');
+        $this->render('view/User/Connexion.php');
     }
 }
