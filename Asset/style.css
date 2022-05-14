@@ -1,0 +1,11 @@
+.error-message {
+    position: absolute;;
+    top: 0;
+    left: 0;
+    background-color: indianred;
+    color: white;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}

@@ -67,7 +67,8 @@ class UserController extends AbstractController
     {
         self::redirectIfConnected();
 
-        if($this->isFormSubmitted()) {
+        if($this->isFormSubmitted())
+        {
             $mail = ($this->getFormField('email'));
             $firstname =$this->getFormField('firstname');
             $lastname = $this->getFormField('lastname');
