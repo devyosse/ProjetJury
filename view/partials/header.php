@@ -20,7 +20,8 @@
         }
     }
     ?>
-    <nav>
-        <a href="/index.php?c=user&a=register" title="Inscrivez vous">Inscription</a>
-        <a href="/index.php?c=user&a=login" title="Connectez vous">Connexion</a>
+    <nav class="nav-bar">
+        <a href="/index.php?c=user&a=register" title="Inscrivez vous" class="register">Inscription</a>
+        <a href="/index.php?c=user&a=login" title="Connectez vous" class="login">Connexion</a>
+        <a href="/index.php?c=home&a=home" title="Accueil" class="home">Accueil</a>
     </nav>

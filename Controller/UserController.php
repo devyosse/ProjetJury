@@ -100,7 +100,7 @@ class UserController extends AbstractController
 
             if(!preg_match('/^(?=.*[!@#$%^&*-\])(?=.*[0-9])(?=.*[A-Z]).{8,20}$/', $password)) {
                 // Le password ne correspond pas au critère.
-                $errors[] = "Le password ne correpsond pas au critère";
+                $errors[] = "Le password ne correspond pas au critère";
             }
 
             if($age <= 18 || $age >= 120) {
