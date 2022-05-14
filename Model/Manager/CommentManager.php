@@ -7,7 +7,7 @@ class CommentManager
 {
 
 
-//add a comment in a article of exist
+//add a comment in a product of exist
     public static function addComment($productId, $author, $comment){
         $req = Database::getPDO()->prepare('INSERT INTO comment (productId, author, comment, date) VALUES (?, ?, ?, NOW())');
         $req->execute(array($productId, $author, $comment));

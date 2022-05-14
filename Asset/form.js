@@ -5,6 +5,8 @@ let passwordConfirm = document.getElementById("id-password-repeat");
 function checkPassword() {
     if (password.value !== passwordConfirm.value){
         passwordConfirm.setCustomValidity("Les mots de passe ne correspondent pas.");
+        passwordConfirm.setCustomValidity("Les caractères autorisé sont : '/^(?=.*[!@#$%^&*-\\])(?=.*[0-9])(?=.*[A-Z]).{8,20}$/'");
+
     }
     else{
         passwordConfirm.setCustomValidity('');
