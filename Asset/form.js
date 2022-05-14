@@ -36,7 +36,6 @@ email.addEventListener('change', validateEmail);
 
 let age = document.getElementById('id-age');
 
-
 function validateAge() {
     if(age.value < 18) {
         age.setCustomValidity("Désolé, vous n'est pas assez agé");
