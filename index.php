@@ -1,24 +1,27 @@
 <?php
 
+
 use App\Routing\AbstractRouter;
 use App\Routing\HomeRouter;
 use App\Routing\UserRouter;
 
-require __DIR__ . './includes.php';
+require __DIR__ . '/includes.php';
 
 
 session_start();
-
-$page = AbstractRouter::secure($_GET['c']);
+$page = isset($_GET['c']) ? AbstractRouter::secure($_GET['c']) : null;
 if($page === null) {
     $page = 'home';
 }
-$method = AbstractRouter::secure($_GET['a']);
-if($method) {
+
+$method = isset($_GET['a']) ? AbstractRouter::secure($_GET['a']) : null;
+if($method === null) {
     $method = 'index';
 }
 
+
 // Defining the right controller.
+
 switch ($page) {
     case 'home':
         HomeRouter::route();
@@ -27,7 +30,7 @@ switch ($page) {
         UserRouter::route($method);
         break;
     case 'product':
-        ProductRouter::route($method);
+        //ProductRouter::route($method);
         break;
     default:
         (new ErrorController())->error404($page);

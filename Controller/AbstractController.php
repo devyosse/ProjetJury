@@ -15,10 +15,9 @@ abstract class AbstractController
      */
     public function render(string $template, array $data = [])
     {
-        ob_start();
+        require __DIR__ . "/../view/partials/header.php";
         require __DIR__ . '/../view/' . $template;
-        $html = ob_get_clean();
-        exit;
+        require __DIR__ . "/../view/partials/footer.php";
     }
 
 

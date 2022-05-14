@@ -136,7 +136,7 @@ final class UserManager
 
 
     /**
-     * Create a new User Entity
+     * Create a new user Entity
      * @param array $data
      * @return User
      */

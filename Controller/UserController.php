@@ -141,12 +141,12 @@ class UserController extends AbstractController
             }
 
         }
-        $this->render('view/User/Inscription.php');
+        $this->render('user/inscription.php');
     }
 
 
     /**
-     * User logout.
+     * user logout.
      * @return void
      */
     public function logout(): void
@@ -158,12 +158,12 @@ class UserController extends AbstractController
             session_destroy();
         }
 
-        $this->render('index.php');
+        $this->render('home/home.php');
     }
 
 
     /**
-     * User login
+     * user login
      * @return void
      */
     public function login()
@@ -191,6 +191,6 @@ class UserController extends AbstractController
             }
         }
 
-        $this->render('view/User/Connexion.php');
+        $this->render('user/connexion.php');
     }
 }

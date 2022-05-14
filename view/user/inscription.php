@@ -1,29 +1,16 @@
-<?php
-require __DIR__ . '/../../includes.php';
-?>
 
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inscription</title>
-</head>
-<body>
-<form method="post" action="../../GalaxyPhone/GalaxyNew.php">
+<form method="post" action="/index.php?c=user&a=register">
     <div>
         <label for="id-username">Username</label>
         <input type="text" name="username" id="id-username" required>
     </div>
     <div>
         <label for="id-age">Your age</label>
-        <input type="number" name="age" id="id-age" min="18" max="120" required>
+        <input type="number" name="age" id="id-age" max="120" required>
     </div>
     <div>
         <label for="id-email">Your Email</label>
-        <input type="text" name="email" id="id-email" minlength="18" maxlength="100" required>
+        <input type="text" name="email" id="id-email" minlength="4" required>
     </div>
 
     <div>
@@ -39,12 +26,4 @@ require __DIR__ . '/../../includes.php';
     </div>
 </form>
 
-<script src="../../Asset/form.js"></script>
-</body>
-</html>
-
-
-
-
-
-
+<script src="/Asset/form.js"></script>

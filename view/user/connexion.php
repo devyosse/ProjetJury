@@ -1,5 +1,5 @@
 
-<form method="post" action="">
+<form method="post" action="/index.php?c=user&a=login">
     <div>
         <label for="id-username">Username</label>
         <input type="text" name="username" id="id-username" required>

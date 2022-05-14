@@ -1,11 +1,4 @@
 <?php
-
-require __DIR__ . "/view/Partials/header.php";
-require __DIR__ . "/view/Partials/footer.php";
-
-require __DIR__ . "/view/User/Inscription.php";
-require __DIR__ . "/view/User/Connexion.php";
-
 require __DIR__ . '/Model/Database.php';
 require __DIR__ . '/Model/Entity/AbstractEntity.php';
 require __DIR__ . '/Model/Entity/Product.php';

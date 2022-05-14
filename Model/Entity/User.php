@@ -26,6 +26,7 @@ class User extends AbstractEntity
 
     /**
      * @param string $email
+     * @return User
      */
     public function setEmail(string $email): self
     {
@@ -43,6 +44,7 @@ class User extends AbstractEntity
 
     /**
      * @param string $firstname
+     * @return User
      */
     public function setFirstname(string $firstname): self
     {
@@ -60,6 +62,7 @@ class User extends AbstractEntity
 
     /**
      * @param string $lastname
+     * @return User
      */
     public function setLastname(string $lastname): self
     {
@@ -77,6 +80,7 @@ class User extends AbstractEntity
 
     /**
      * @param string $password
+     * @return User
      */
     public function setPassword(string $password): self
     {
@@ -94,8 +98,9 @@ class User extends AbstractEntity
 
     /**
      * @param int $age
+     * @return User
      */
-    public function setAge(int $age): int
+    public function setAge(int $age): self
     {
         $this->age = $age;
         return $this;
@@ -104,13 +109,14 @@ class User extends AbstractEntity
     /**
      * @return array
      */
-    public function getRoles(): self
+    public function getRoles(): array
     {
         return $this->roles;
     }
 
     /**
      * @param array $roles
+     * @return User
      */
     public function setRoles(array $roles): self
     {
