@@ -1,9 +1,5 @@
  <link rel="stylesheet" href="/Asset/style.css">
 
-<body>
-
-</body>
-</html>
 <form method="post" action="/index.php?c=user&a=register" id="id-form" class="form">
 
     <div class="class-username">

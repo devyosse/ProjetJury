@@ -37,18 +37,18 @@ a {
 
 #id-form {
     border: 1px solid black;
-    width: 30%;
+    border-radius: 10px;
+    width: 23%;
     margin-top: 10%;
-    margin-left: 35%;
+    margin-left: 40%;
     height: 40%;
     text-align: center;
-    padding: 15px;
 }
 
 #id-username {
     display: block;
     margin-left: 35%;
-    margin-top: 10px;
+    margin-top: 10%;
 }
 
 #id-age{
@@ -79,4 +79,34 @@ a {
     display: block;
     margin-top: 20px;
 }
+
+
+#id-form-connexion {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 23%;
+    margin-top: 10%;
+    margin-left: 40%;
+    height: 40%;
+    text-align: center;
+}
+
+#id-username-connexion {
+    display: block;
+    margin-left: 35%;
+    margin-top: 10px;
+}
+
+#id-password-connexion {
+    display: block;
+    margin-left: 35%;
+    margin-top: 10px;
+}
+
+#submit-connexion {
+    display: block;
+    margin-top: 20px;
+    margin-left: 45%;
+}
+
 

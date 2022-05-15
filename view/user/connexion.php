@@ -1,14 +1,13 @@
+<link rel="stylesheet" href="/Asset/style.css">
+<form method="post" action="/index.php?c=user&a=login" id="id-form-connexion">
+    <div>
+        <input type="text" name="username" id="id-username-connexion" placeholder="Username" required>
+    </div>
+    <div>
 
-<form method="post" action="/index.php?c=user&a=login">
-    <div>
-        <label for="id-username">Username</label>
-        <input type="text" name="username" id="id-username" required>
+        <input type="password" name="password" id="id-password-connexion" minlength="6" maxlength="24" placeholder="Password" required>
     </div>
     <div>
-        <label for="id-password">Password</label>
-        <input type="password" name="password" id="id-password" minlength="6" maxlength="24" required>
-    </div>
-    <div>
-        <input type="submit" value="Envoyer" name="submit">
+        <input type="submit" value="Envoyer" name="submit" id="submit-connexion">
     </div>
 </form>
