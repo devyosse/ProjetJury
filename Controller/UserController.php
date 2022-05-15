@@ -79,41 +79,41 @@ class UserController extends AbstractController
             $errors = [];
             $mail = filter_var($mail, FILTER_SANITIZE_EMAIL);
             if(!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-                // l'email n'est pas valide.
+                // email not valid
                 $errors[] = "L'adresse mail n'est pas au bon format";
             }
 
             if(!strlen($firstname) >= 2) {
-                // Le firstname ne fait pas au moins 2 caractères.
+                //the firstname don't do two character
                 $errors[] = "Le firstname ne fait pas au moins 2 chars";
             }
 
             if(!strlen($lastname) >= 2) {
-                // Le lastname ne fait pas au moins 2 caractères.
+                // the firstname don't do two character
                 $errors[] = "Le lastname ne fait pas au moins 2 chars";
             }
 
             if($password !== $passwordRepeat) {
-                // Les passwords ne correspondent pas !
+                // the password are not similar
                 $errors[] = "Les password ne correspondent pas";
             }
 
             if(!preg_match('/^(?=.*[!@#$%^&*-\])(?=.*[0-9])(?=.*[A-Z]).{8,20}$/', $password)) {
-                // Le password ne correspond pas au critère.
+                //the password have not similar criteria
                 $errors[] = "Le password ne correspond pas au critère";
             }
 
             if($age <= 18 || $age >= 120) {
-                // L'age n'est pas dans la bonne tranche.
+                // the age are not reglementary
                 $errors[] = "L'age n'est pas réglementaire";
             }
 
-            // S'il y a une erreur, enregistrement des messages en session.
+            // if we have mistake, the message are register in the session
             if(count($errors) > 0) {
                 $_SESSION['errors'] = $errors;
             }
             else {
-                //pas d'erreurs, enregistrement.
+                //no mistake, register
                 $user = new User();
                 $role = RoleManager::getRoleByName('user');
                 $user
