@@ -1,7 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
     background-color: aliceblue;
-    font-family: Arial;
-    box-sizing: border-box;
+    font-family: Arial, serif;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -20,13 +25,13 @@ body{
 .nav-bar {
     background-color: black;
     width: 100%;
-    height: 10%;
     text-align: center;
+    padding: 20px;
 }
 
 a {
     text-decoration: none;
-    color: white;
+    color: orange;
     font-weight: bold;
     display: inline;
     padding-left: 10%;
@@ -35,81 +40,129 @@ a {
 
 
 #id-form {
-    border: 1px solid black;
     border-radius: 10px;
     width: 20%;
-    margin-top: 10%;
+    margin-top: 7%;
     margin-left: 40%;
     height: 40%;
     text-align: center;
 }
 
 #id-username {
-    display: block;
-    margin-left: 35%;
-    margin-top: 10%;
+    margin-top: 10px;
+    color: darkgrey;
+    border: 2px solid orange;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 4px 4px 6px 6px;
 }
 
 #id-age{
-    display: block;
-    margin-left: 35%;
     margin-top: 10px;
+    color: darkgrey;
+    border: 2px solid orange;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 4px 4px 6px 6px;
 }
 
 #id-email{
-    display: block;
-    margin-left: 35%;
     margin-top: 10px;
+    color: darkgrey;
+    border: 2px solid orange;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 4px 4px 6px 6px;
 }
 
 #id-password{
-    display: block;
-    margin-left: 35%;
     margin-top: 10px;
+    color: darkgrey;
+    border: 2px solid orange;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 4px 4px 6px 6px;
 }
 
 #id-password-repeat{
-    display: block;
-    margin-left: 35%;
     margin-top: 10px;
-}
-
-.class-submit{
-    display: block;
-    margin-top: 20px;
-}
-
-
-#id-form-connexion {
-    border: 1px solid black;
+    color: darkgrey;
+    border: 2px solid orange;
+    font-size: 20px;
     border-radius: 10px;
-    width: 20%;
-    margin-top: 10%;
-    margin-left: 40%;
+    padding: 4px 4px 6px 6px;
+}
+
+#submit-inscription {
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration-line: none;
+    padding: 5px;
+}
+
+.salutation{
+    font-weight: bold;
+    font-size: 20px;
+    color: orange;
+}
+
+.salutation-inscription{
+    font-weight: bold;
+    font-size: 20px;
+    color: orange;
+}
+
+.class-form-connexion {
+    border-radius: 10px;
+    width: 40%;
+    margin-top: 8%;
+    margin-left: 30%;
     height: 35%;
     text-align: center;
 }
 
 #id-username-connexion {
-    display: block;
-    margin-left: 35%;
-    margin-top: 10px;
+    margin-top: 60px;
+    color: darkgrey;
+    border: 2px solid orange;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 4px 4px 6px 6px;
+
 }
 
 #id-password-connexion {
-    display: block;
-    margin-left: 35%;
     margin-top: 10px;
+    color: darkgrey;
+    border: 2px solid orange;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 4px 4px 6px 6px;
 }
 
 #submit-connexion {
-    display: block;
     margin-top: 20px;
-    margin-left: 45%;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration-line: none;
+    padding: 5px;
 }
 
 
 .home-title, .home-content, .container, .home {
     margin-top: 2%;
     text-align: center;
+}
+
+@media  screen and (max-width: 560px){
+   body {
+       font-size: 1.2rem;
+   }
 }

@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/Asset/style.css">
-<form method="post" action="/index.php?c=user&a=login" id="id-form-connexion">
+<form method="post" action="/index.php?c=user&a=login" class="class-form-connexion">
+    <p class="salutation">Te voilà de retour parmis nous connecte-toi !</p>
     <div>
         <input type="text" name="username" id="id-username-connexion" placeholder="Username" required>
     </div>

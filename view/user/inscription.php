@@ -1,6 +1,6 @@
- <link rel="stylesheet" href="/Asset/style.css">
 
 <form method="post" action="/index.php?c=user&a=register" id="id-form" class="form">
+    <p class="salutation-inscription">Bien le bonjour, incris-toi afin d'obtenir le maximun de fonctionnalités !</p>
 
     <div class="class-username">
         <input type="text" name="username" id="id-username" placeholder="Username" required>
@@ -22,8 +22,8 @@
         <input type="password" name="password-repeat" id="id-password-repeat" placeholder="Password-repeat" required>
     </div>
 
-    <div class="class-submit">
-        <input type="submit" value="Envoyer" name="submit">
+    <div>
+        <input type="submit" value="Envoyer" name="submit" id="submit-inscription">
     </div>
 </form>
 
