@@ -171,7 +171,7 @@ class UserController extends AbstractController
 
         if($this->isFormSubmitted()) {
             $errorMessage = "L'utilisateur / le password est mauvais";
-            $mail =$this->getFormField('email');
+            $mail = $this->getFormField('mail');
             $password = $this->getFormField('password');
 
             $user = UserManager::getUserByMail($mail);

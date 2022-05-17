@@ -88,7 +88,7 @@ final class UserManager
 
     /**
      * Check if a user exists with its email.
-     * @param int $id
+     * @param string $mail
      * @return bool
      */
     public static function userMailExists(string $mail): bool
@@ -100,7 +100,7 @@ final class UserManager
 
     /**
      * Return all available user by given role
-     * @param int $roleId
+     * @param Role $role
      * @return array
      */
     public static function getUsersByRole(Role $role): array
@@ -182,6 +182,4 @@ final class UserManager
         }
         return $result && $resultRole;
     }
-
-
 }
