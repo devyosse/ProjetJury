@@ -70,8 +70,7 @@ class UserController extends AbstractController
         if($this->isFormSubmitted())
         {
             $mail = ($this->getFormField('email'));
-            $firstname =$this->getFormField('firstname');
-            $lastname = $this->getFormField('lastname');
+            $username =$this->getFormField('username');
             $password = $this->getFormField('password');
             $passwordRepeat = $this->getFormField('password-repeat');
             $age = (int)$this->getFormField('age', 0);
@@ -83,14 +82,9 @@ class UserController extends AbstractController
                 $errors[] = "L'adresse mail n'est pas au bon format";
             }
 
-            if(!strlen($firstname) >= 2) {
+            if(!strlen($username) >= 2) {
                 //the firstname don't do two character
                 $errors[] = "Le firstname ne fait pas au moins 2 chars";
-            }
-
-            if(!strlen($lastname) >= 2) {
-                // the firstname don't do two character
-                $errors[] = "Le lastname ne fait pas au moins 2 chars";
             }
 
             if($password !== $passwordRepeat) {
@@ -118,8 +112,7 @@ class UserController extends AbstractController
                 $role = RoleManager::getRoleByName('user');
                 $user
                     ->setAge($age)
-                    ->setFirstname($firstname)
-                    ->setLastname($lastname)
+                    ->setUsername($username)
                     ->setEmail($mail)
                     ->setPassword(password_hash($password, PASSWORD_DEFAULT))
                     ->setRoles([$role])
@@ -141,6 +134,11 @@ class UserController extends AbstractController
                 }
             }
 
+        }
+        else {
+            var_dump([
+                "get" => $_POST,
+            ]);
         }
         $this->render('user/inscription.php');
     }

@@ -8,8 +8,8 @@ use User;
 
 final class RoleManager
 {
-    public const ROLE_ADMIN = 'admin';
-    public const ROLE_USER = 'user';
+    public const ROLE_ADMIN = 'Admin';
+    public const ROLE_USER = 'Utilisateur';
 
     /**
      * Fetch all roles.

@@ -146,8 +146,7 @@ final class UserManager
             ->setId($data['id'])
             ->setPassword($data['password'])
             ->setEmail($data['email'])
-            ->setLastname($data['lastname'])
-            ->setFirstname($data['firstname'])
+            ->setUsername($data['username'])
             ->setAge($data['age'])
         ;
 
@@ -162,18 +161,18 @@ final class UserManager
     public static function addUser(User &$user): bool
     {
         $stmt = Database::getPDO()->prepare("
-            INSERT INTO ".self::TABLE." (email, firstname, lastname, password, age) 
-            VALUES (:email, :firstname, :lastname, :password, :age)
+            INSERT INTO ".self::TABLE." (email, username, password, age) 
+            VALUES (:email, :username, :password, :age)
         ");
 
         $stmt->bindValue(':email', $user->getEmail());
-        $stmt->bindValue(':firstname', $user->getFirstname());
-        $stmt->bindValue(':lastname', $user->getLastname());
+        $stmt->bindValue(':username', $user->getUsername());
         $stmt->bindValue(':password', $user->getPassword());
         $stmt->bindValue(':age', $user->getAge());
 
         $result = $stmt->execute();
         $user->setId(Database::getPDO()->lastInsertId());
+
         if($result) {
             $role = RoleManager::getRoleByName(RoleManager::ROLE_USER);
             $resultRole = Database::getPDO()->exec("

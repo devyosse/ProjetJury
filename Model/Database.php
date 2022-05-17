@@ -1,9 +1,7 @@
 <?php
 
-
 namespace App\Model;
 
-use App\Config;
 use PDO;
 use PDOException;
 
@@ -12,6 +10,11 @@ class Database
 
     private static ?PDO $pdoObject = null;
     private static string $dsn = "mysql:host=%s;dbname=%s;charset=%s";
+    private const DB_CHARSET = 'utf8';
+    private const DB_NAME = 'micro_blog';
+    private const DB_HOST = 'localhost';
+    private const DB_USERNAME = 'root';
+    private const DB_PASSWORD = '';
 
     /**
      * @return PDO
@@ -20,8 +23,8 @@ class Database
     {
         if(self::$pdoObject === null) {
             try {
-                $dsn = sprintf(self::$dsn, Config::DB_HOST, Config::DB_NAME, Config::DB_CHARSET);
-                self::$pdoObject = new PDO($dsn, Config::DB_USERNAME, Config::DB_PASSWORD);
+                $dsn = sprintf(self::$dsn, self::DB_HOST, self::DB_NAME, self::DB_CHARSET);
+                self::$pdoObject = new PDO($dsn, self::DB_USERNAME, self::DB_PASSWORD);
                 self::$pdoObject->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
             catch (PDOException $err) {

@@ -4,8 +4,7 @@
 class User extends AbstractEntity
 {
     private string $email;
-    private string $firstname;
-    private string $lastname;
+    private string $username;
     private string $password;
     private int $age;
     private array $roles;
@@ -37,36 +36,18 @@ class User extends AbstractEntity
     /**
      * @return string
      */
-    public function getFirstname(): string
+    public function getUsername(): string
     {
-        return $this->firstname;
+        return $this->username;
     }
 
     /**
-     * @param string $firstname
+     * @param string $username
      * @return User
      */
-    public function setFirstname(string $firstname): self
+    public function setUsername(string $username): self
     {
-        $this->firstname = $firstname;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastname(): string
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * @param string $lastname
-     * @return User
-     */
-    public function setLastname(string $lastname): self
-    {
-        $this->lastname = $lastname;
+        $this->username = $username;
         return $this;
     }
 
