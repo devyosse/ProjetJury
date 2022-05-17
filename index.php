@@ -32,6 +32,9 @@ switch ($page) {
     case 'product':
         //ProductRouter::route($method);
         break;
+    case 'admin':
+        AdminRouter::route($method);
+        break;
     default:
         (new ErrorController())->error404($page);
 }

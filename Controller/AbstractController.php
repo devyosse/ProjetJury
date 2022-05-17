@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Model\Entity\Role;
+use App\Model\Manager\RoleManager;
 
 
 abstract class AbstractController
@@ -54,6 +55,16 @@ abstract class AbstractController
     public static function isUserConnected(): bool
     {
         return isset($_SESSION['user']) && null !== ($_SESSION['user'])->getId();
+    }
+
+    /**
+     * Check if user is admin.
+     * @return bool
+     */
+    public static function isUserAdmin(): bool
+    {
+        return isset($_SESSION['user']) &&
+            in_array(RoleManager::ROLE_ADMIN, array_map(fn($role) => $role->getRoleName(),$_SESSION['user']->getRoles()));
     }
 
 

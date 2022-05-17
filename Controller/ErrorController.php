@@ -9,7 +9,7 @@ class ErrorController
      */
     public function error404(string $askPage)
     {
-        require __DIR__ . '/../partials/error/error.php';
+        require __DIR__ . '/../view/partials/error/error.php';
     }
 
 
@@ -19,6 +19,6 @@ class ErrorController
      */
     public function missingParameters()
     {
-        require __DIR__ . '/../partials/error/missing-param.php';
+        require __DIR__ . '/../view/partials/error/missing-param.php';
     }
 }

@@ -25,7 +25,7 @@
     }
     ?>
     <nav class="nav-bar">
-        <a href="/index.php?c=home&a=home" title="Accueil" id="home">Accueil</a><?php
+        <a href="/index.php" title="Accueil" id="home">Accueil</a><?php
 
         if(!AbstractController::isUserConnected()) { ?>
             <a href="/index.php?c=user&a=register" title="Inscrivez vous" class="register">Inscription</a>
@@ -34,6 +34,9 @@
 
         if(AbstractController::isUserConnected()) { ?>
             <a href="/index.php?c=user&a=logout" title="Déconnexion" class="login">Déconnexion</a> <?php
-        }?>
+        }
 
+        if (AbstractController::isUserAdmin()){ ?>
+            <a href="/index.php?c=admin" title="Admin" class="admin">Administration</a> <?php
+        } ?>
     </nav>

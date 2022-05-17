@@ -135,11 +135,7 @@ class UserController extends AbstractController
             }
 
         }
-        else {
-            var_dump([
-                "get" => $_POST,
-            ]);
-        }
+
         $this->render('user/inscription.php');
     }
 
