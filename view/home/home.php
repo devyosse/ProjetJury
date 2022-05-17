@@ -1,4 +1,4 @@
-<h1 class="home">Accueil</h1>
+<h1 class="homee">Accueil</h1>
 
 <h2 class="home-title">Bienvenue connecte-toi pour avoir accès au site dans son intégralité</h2>
 

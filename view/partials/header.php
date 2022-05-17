@@ -10,6 +10,9 @@
 </head>
 <body>
     <?php
+
+    use App\Controller\AbstractController;
+
     if(isset($_SESSION['errors'])) {
         $errors = $_SESSION['errors'];
         unset($_SESSION['errors']);
@@ -22,7 +25,15 @@
     }
     ?>
     <nav class="nav-bar">
-        <a href="/index.php?c=home&a=home" title="Accueil" class="home">Accueil</a>
-        <a href="/index.php?c=user&a=register" title="Inscrivez vous" class="register">Inscription</a>
-        <a href="/index.php?c=user&a=login" title="Connectez vous" class="login">Connexion</a>
+        <a href="/index.php?c=home&a=home" title="Accueil" id="home">Accueil</a><?php
+
+        if(!AbstractController::isUserConnected()) { ?>
+            <a href="/index.php?c=user&a=register" title="Inscrivez vous" class="register">Inscription</a>
+            <a href="/index.php?c=user&a=login" title="Connectez vous" class="login">Connexion</a> <?php
+        }
+
+        if(AbstractController::isUserConnected()) { ?>
+            <a href="/index.php?c=user&a=logout" title="Déconnexion" class="login">Déconnexion</a> <?php
+        }?>
+
     </nav>

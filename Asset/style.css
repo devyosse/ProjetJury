@@ -42,7 +42,18 @@ a {
     padding-left: 10%;
     font-size: 25px;
 }
+.homee {
+    text-align: center;
+}
 
+#home {
+    text-decoration: none;
+    color: orange;
+    font-weight: bold;
+    display: inline;
+    padding-left: 10%;
+    font-size: 25px;
+}
 
 #id-form {
     display: flex;

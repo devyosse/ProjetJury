@@ -32,7 +32,7 @@ final class RoleManager
 
     /**
      * Return all given user roles.
-     * @param int $roleId
+     * @param User $user
      * @return array
      */
     public static function getRolesByUser(User $user): array

@@ -18,6 +18,7 @@ abstract class AbstractController
         require __DIR__ . "/../view/partials/header.php";
         require __DIR__ . '/../view/' . $template;
         require __DIR__ . "/../view/partials/footer.php";
+        exit;
     }
 
 
@@ -62,7 +63,7 @@ abstract class AbstractController
     public function redirectIfNotConnected(): void
     {
         if (!self::isUserConnected()) {
-            $this->render('index.php');
+            $this->render('home/home.php');
         }
     }
 
@@ -72,7 +73,7 @@ abstract class AbstractController
     public function redirectIfConnected(): void
     {
         if (self::isUserConnected()) {
-            $this->render('/index.php');
+            $this->render('home/home.php');
         }
     }
 
@@ -84,7 +85,7 @@ abstract class AbstractController
     public function redirectIfNotGranted(string $role): void
     {
         if (!self::isUserConnected()) {
-            $this->render('index.php');
+            $this->render('home/home.php');
             return;
         }
 
@@ -93,7 +94,7 @@ abstract class AbstractController
         }, ($_SESSION['user'])->getRoles());
 
         if (!in_array($role, $userRoles)) {
-            $this->render('index.php');
+            $this->render('home/home.php');
         }
     }
 }
