@@ -17,13 +17,11 @@ function checkPassword() {
 password.addEventListener('change', checkPassword);
 passwordConfirm.addEventListener('keyup', checkPassword);
 
-
-let email = document.getElementById('id-email');
-
-
 function validateEmail() {
 
+    let email = document.getElementById('id-email');
     let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
     //check if the email have string if he have he return self
     if(email.value.match(mailFormat))
     {

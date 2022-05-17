@@ -23,6 +23,11 @@ body{
 }
 
 .nav-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     background-color: black;
     width: 100%;
     text-align: center;
@@ -40,6 +45,11 @@ a {
 
 
 #id-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     border-radius: 10px;
     width: 20%;
     margin-top: 7%;
@@ -117,6 +127,11 @@ a {
 }
 
 .class-form-connexion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     border-radius: 10px;
     width: 40%;
     margin-top: 8%;
@@ -162,7 +177,8 @@ a {
 }
 
 @media  screen and (max-width: 330px){
-   body {
-       font-size: 1rem;
+   body, a, input, form {
+       font-size: 1.2rem;
    }
+
 }
