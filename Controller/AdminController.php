@@ -13,6 +13,16 @@ class AdminController extends AbstractController
      */
     public function index()
     {
+        $this->render('admin/admin.php');
+    }
+
+
+    /**
+     * Show users list.
+     * @return void
+     */
+    public function showUsersList()
+    {
         $allUsers = [];
         $users = UserManager::getAll();
         foreach ($users as $user) {
@@ -20,9 +30,14 @@ class AdminController extends AbstractController
                 $allUsers[] = $user;
             }
         }
-        $this->render('admin/admin.php', [
+        $this->render('admin/users.php', [
             'users_list' => $allUsers,
         ]);
     }
-}
 
+
+    public function showProductsList()
+    {
+        $this->render('admin/products.php');
+    }
+}
