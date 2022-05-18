@@ -40,3 +40,5 @@
             <a href="/index.php?c=admin" title="Admin" class="admin">Administration</a> <?php
         } ?>
     </nav>
+
+    <main>

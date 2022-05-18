@@ -8,19 +8,13 @@
     Ainsi tu pourra choisir le smartphone qui te correspond le mieux.
 </p>
 
-<div class="container">
-    <div class="phone-detail"> <!-- Premier téléphone dans la base de données -->
-        <h2>Galaxy A70</h2>
-        <p>Test description</p>
-    </div>
-
-    <div class="phone-detail"> <!-- Deuxième téléphone dans la base de données -->
-        <h2>Galaxy A30</h2>
-        <p>Test description</p>
-    </div>
-
-    <div class="phone-detail"> <!-- Troisième téléphone dans la base de données -->
-        <h2>Galaxy Z-Fold</h2>
-        <p>Test description</p>
-    </div>
+<div class="container"> <?php
+    foreach ($data['products'] as $product) { ?>
+        <div class="phone-detail">
+            <h2><?= $product->getName() ?></h2>
+            <small>Date de sortie: <?= $product->getDateRelease() ?></small>
+            <p><?= $product->getContent() ?></p>
+        </div> <?php
+    }
+    ?>
 </div>
