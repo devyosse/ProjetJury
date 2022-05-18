@@ -16,10 +16,19 @@ class AdminRouter extends AbstractRouter
                 $controller->index();
                 break;
             case 'show-users':
-                self::execRouteWithParameters($controller, 'showUsersList', []);
+                $controller->showUsersList();
                 break;
             case 'show-products':
-                self::execRouteWithParameters($controller, 'showProductsList', []);
+                $controller->showProductsList();
+                break;
+            case 'add-product':
+                $controller->addProduct();
+                break;
+            case 'edit-product':
+                self::execRouteWithParameters($controller, 'editProduct', ['id' => 'int']);
+                break;
+            case 'delete-product':
+                self::execRouteWithParameters($controller, 'deleteProduct', ['id', 'int']);
                 break;
             default:
                 (new ErrorController())->error404($action);

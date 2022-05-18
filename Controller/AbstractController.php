@@ -94,7 +94,7 @@ abstract class AbstractController
      */
     public function redirectIfNotGranted(string $role): void
     {
-        if (!self::isUserConnected() || $role !== ($_SESSION['user'])->getRole()) {
+        if (!self::isUserConnected() || $role !== ($_SESSION['user'])->getRole()->getRoleName()) {
             $this->render('home/home.php');
             return;
         }

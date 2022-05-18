@@ -66,8 +66,7 @@ class Product
      */
     public function getDateRelease(): string
     {
-        $dt = DateTime::createFromFormat('Y-m-d H:i:s', $this->dateRelease);
-        return $dt->format('m-d-Y');
+        return $this->dateRelease;
     }
 
     /**

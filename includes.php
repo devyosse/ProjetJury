@@ -16,7 +16,6 @@ require __DIR__ . '/Controller/AdminController.php';
 require __DIR__ . '/Controller/ErrorController.php';
 require __DIR__ . '/Controller/UserController.php';
 require __DIR__ . '/Controller/HomeController.php';
-require __DIR__ . '/Controller/ProductController.php';
 
 require __DIR__ . '/Routing/AbstractRouter.php';
 require __DIR__ . '/Routing/UserRouter.php';

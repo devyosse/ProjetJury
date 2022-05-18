@@ -12,7 +12,9 @@
     foreach ($data['products'] as $product) { ?>
         <div class="phone-detail">
             <h2><?= $product->getName() ?></h2>
-            <small>Date de sortie: <?= $product->getDateRelease() ?></small>
+            <small>Date de sortie: <?=
+                DateTime::createFromFormat('Y-m-d H:i:s', $product->getDateRelease())->format('d-m-Y'); ?>
+            </small>
             <p><?= $product->getContent() ?></p>
         </div> <?php
     }
