@@ -31,27 +31,6 @@ final class UserManager
 
 
     /**
-     * Return current users count.
-     * @return int
-     */
-    public static function getUsersCount(): int
-    {
-        $result = Database::getPDO()->query("SELECT count(*) as cnt FROM " . self::TABLE);
-        return $result ? $result->fetch()['cnt'] : 0;
-    }
-
-    /**
-     * Return current users count.
-     * @return int
-     */
-    public static function getMinAge(): int
-    {
-        $result = Database::getPDO()->query("SELECT min(age) as minimum FROM " . self::TABLE);
-        return $result ? $result->fetch()['minimum'] : 0;
-    }
-
-
-    /**
      * Return a user based on itus id.
      * @param int $id
      * @return User
@@ -99,28 +78,6 @@ final class UserManager
 
 
     /**
-     * Return all available user by given role
-     * @param Role $role
-     * @return array
-     */
-    public static function getUsersByRole(Role $role): array
-    {
-        $users = [];
-        $usersQuery = Database::getPDO()->query("
-            SELECT * FROM " . self::TABLE . " WHERE id IN (SELECT user_fk WHERE role_fk = {$role->getId()});
-        ");
-
-        if($usersQuery){
-            foreach($usersQuery->fetchAll() as $userData) {
-                $users[] = self::makeUser($userData);
-            }
-        }
-
-        return $users;
-    }
-
-
-    /**
      * Delete a user from user db.
      * @param User $user
      * @return bool
@@ -149,8 +106,9 @@ final class UserManager
             ->setUsername($data['username'])
             ->setAge($data['age'])
         ;
+        $user->setRole(RoleManager::getRoleByUser($user));
 
-        return $user->setRoles(RoleManager::getRolesByUser($user));
+        return $user;
     }
 
 
@@ -161,25 +119,19 @@ final class UserManager
     public static function addUser(User &$user): bool
     {
         $stmt = Database::getPDO()->prepare("
-            INSERT INTO ".self::TABLE." (email, username, password, age) 
-            VALUES (:email, :username, :password, :age)
+            INSERT INTO ".self::TABLE." (email, username, password, age, role_fk) 
+            VALUES (:email, :username, :password, :age, :role_fk)
         ");
 
         $stmt->bindValue(':email', $user->getEmail());
         $stmt->bindValue(':username', $user->getUsername());
         $stmt->bindValue(':password', $user->getPassword());
         $stmt->bindValue(':age', $user->getAge());
+        $stmt->bindValue(':role_fk', $user->getRole()->getId());
 
         $result = $stmt->execute();
         $user->setId(Database::getPDO()->lastInsertId());
 
-        if($result) {
-            $role = RoleManager::getRoleByName(RoleManager::ROLE_USER);
-            $resultRole = Database::getPDO()->exec("
-                INSERT INTO ".self::TABLE_USER_ROLE. " (user_fk, role_fk) VALUES (".$user->getId().", ".$role->getId().")
-            ");
-
-        }
-        return $result && $resultRole;
+        return $result;
     }
 }

@@ -13,7 +13,7 @@ class UserController extends AbstractController
     {
         $this->redirectIfNotGranted(RoleManager::ROLE_ADMIN);
 
-        $this->render('user/users-list', [
+        $this->render('admin/admin.php', [
             'users_list' => UserManager::getAll()
         ]);
     }
@@ -29,7 +29,7 @@ class UserController extends AbstractController
             $this->index();
         }
         else {
-            $this->render('user/show-user', [
+            $this->render('admin/admin.php', [
                 'user' => UserManager::getUser($id),
             ]);
         }
@@ -54,7 +54,7 @@ class UserController extends AbstractController
     {
         if(UserManager::userExists($id)) {
             $user = UserManager::getUser($id);
-            $deleted = UserManager::deleteUser($user);
+            UserManager::deleteUser($user);
         }
         $this->index();
     }
@@ -109,21 +109,20 @@ class UserController extends AbstractController
             else {
                 //no mistake, register
                 $user = new User();
-                $role = RoleManager::getRoleByName('user');
                 $user
                     ->setAge($age)
                     ->setUsername($username)
                     ->setEmail($mail)
                     ->setPassword(password_hash($password, PASSWORD_DEFAULT))
-                    ->setRoles([$role])
                 ;
 
                 if(!UserManager::userMailExists($user->getEmail())) {
                     UserManager::addUser($user);
                     if(null !== $user->getId()) {
-                        $_SESSION['success'] = "Félicitations votre compte est actif";
+                        $_SESSION['success'] = "Félicitations votre compte est actif, vous pouvez vous connecter";
                         $user->setPassword('');
                         $_SESSION['user'] = $user;
+                        header('Location: /index.php');
                     }
                     else {
                         $_SESSION['errors'] = ["Impossible de vous enregistrer"];

@@ -63,8 +63,7 @@ abstract class AbstractController
      */
     public static function isUserAdmin(): bool
     {
-        return isset($_SESSION['user']) &&
-            in_array(RoleManager::ROLE_ADMIN, array_map(fn($role) => $role->getRoleName(),$_SESSION['user']->getRoles()));
+        return isset($_SESSION['user']) && $_SESSION['user']->getRole()->getRoleName() === RoleManager::ROLE_ADMIN;
     }
 
 
@@ -95,17 +94,9 @@ abstract class AbstractController
      */
     public function redirectIfNotGranted(string $role): void
     {
-        if (!self::isUserConnected()) {
+        if (!self::isUserConnected() || $role !== ($_SESSION['user'])->getRole()) {
             $this->render('home/home.php');
             return;
-        }
-
-        $userRoles = array_map(function (Role $role2) {
-            return $role2->getRoleName();
-        }, ($_SESSION['user'])->getRoles());
-
-        if (!in_array($role, $userRoles)) {
-            $this->render('home/home.php');
         }
     }
 }

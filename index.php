@@ -9,6 +9,7 @@ require __DIR__ . '/includes.php';
 
 
 session_start();
+
 $page = isset($_GET['c']) ? AbstractRouter::secure($_GET['c']) : null;
 if($page === null) {
     $page = 'home';

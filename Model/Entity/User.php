@@ -1,18 +1,21 @@
 <?php
 
 
+use App\Model\Entity\Role;
+use App\Model\Manager\RoleManager;
+
 class User extends AbstractEntity
 {
     private string $email;
     private string $username;
     private string $password;
     private int $age;
-    private array $roles;
+    private Role $role;
 
 
     public function __construct()
     {
-        $this->roles = [];
+        $this->role = RoleManager::getRoleByName(RoleManager::ROLE_USER);
     }
 
     /**
@@ -88,20 +91,20 @@ class User extends AbstractEntity
     }
 
     /**
-     * @return array
+     * @return Role
      */
-    public function getRoles(): array
+    public function getRole(): Role
     {
-        return $this->roles;
+        return $this->role;
     }
 
     /**
-     * @param array $roles
+     * @param Role $role
      * @return User
      */
-    public function setRoles(array $roles): self
+    public function setRole(Role $role): self
     {
-        $this->roles = $roles;
+        $this->role = $role;
         return $this;
     }
 }

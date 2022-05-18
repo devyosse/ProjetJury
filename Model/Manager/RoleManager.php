@@ -33,25 +33,25 @@ final class RoleManager
     /**
      * Return all given user roles.
      * @param User $user
-     * @return array
+     * @return Role
      */
-    public static function getRolesByUser(User $user): array
+    public static function getRoleByUser(User $user): Role
     {
-        $roles = [];
+        $role = null;
         $rolesQuery = Database::getPDO()->query("
-            SELECT * FROM role WHERE id IN (SELECT role_fk FROM user_role WHERE user_fk = {$user->getId()});
+            SELECT * FROM role WHERE id = {$user->getRole()->getId()};
         ");
 
         if($rolesQuery){
             foreach($rolesQuery->fetchAll() as $roleData) {
-                $roles[] = (new Role())
+                $role = (new Role())
                     ->setId($roleData['id'])
                     ->setRoleName($roleData['role_name'])
                 ;
             }
         }
 
-        return $roles;
+        return $role;
     }
 
 
