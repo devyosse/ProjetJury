@@ -36,15 +36,6 @@ class UserController extends AbstractController
     }
 
 
-    // TODO
-    public function editUser(int $id, string $category) {
-        var_dump([
-            '$id' => $id,
-            '$category' => $category,
-        ]);
-    }
-
-
     /**
      * Route handling users deletion.
      * @param int $id
@@ -52,6 +43,7 @@ class UserController extends AbstractController
      */
     public function deleteUser(int $id)
     {
+        $this->redirectIfNotGranted(RoleManager::ROLE_ADMIN);
         if(UserManager::userExists($id)) {
             $user = UserManager::getUser($id);
             UserManager::deleteUser($user);

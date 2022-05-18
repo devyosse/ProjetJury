@@ -213,6 +213,10 @@ a {
     cursor: not-allowed;
 }
 
+.users-list td {
+    padding: 15px;
+}
+
 @media  screen and (max-width: 330px){
    body, a, input, form {
        font-size: 1.2rem;

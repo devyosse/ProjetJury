@@ -1,4 +1,4 @@
-<div>
+<div class="users-list">
     <table>
         <thead>
         <tr>
@@ -12,7 +12,7 @@
             <tr>
                 <td><?= $user->getUsername() ?></td>
                 <td>
-                    <a href="/index.php?c=user&a=delete-user&id=<?= $user->getId() ?>">Supprimer</a>
+                    <a class="button" href="/index.php?c=user&a=delete-user&id=<?= $user->getId() ?>">Supprimer</a>
                 </td>
             </tr> <?php
         } ?>
