@@ -56,6 +56,28 @@ final class RoleManager
 
 
     /**
+     * Return all given user roles.
+     * @param User $user
+     * @return Role
+     */
+    public static function getRoleById(int$roleId): Role
+    {
+        $role = null;
+        $roleQuery = Database::getPDO()->query("SELECT * FROM role WHERE id = $roleId");
+
+        if($roleQuery){
+            $roleData = $roleQuery->fetch();
+            $role = (new Role())
+                ->setId($roleData['id'])
+                ->setRoleName($roleData['role_name'])
+            ;
+        }
+
+        return $role;
+    }
+
+
+    /**
      * Return a role by name.
      * @param string $roleName
      * @return Role

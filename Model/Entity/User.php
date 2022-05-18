@@ -12,12 +12,6 @@ class User extends AbstractEntity
     private int $age;
     private Role $role;
 
-
-    public function __construct()
-    {
-        $this->role = RoleManager::getRoleByName(RoleManager::ROLE_USER);
-    }
-
     /**
      * @return string
      */

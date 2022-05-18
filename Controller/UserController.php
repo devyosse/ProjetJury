@@ -116,6 +116,8 @@ class UserController extends AbstractController
                     ->setPassword(password_hash($password, PASSWORD_DEFAULT))
                 ;
 
+                $user->setRole(RoleManager::getRoleByName(RoleManager::ROLE_USER));
+
                 if(!UserManager::userMailExists($user->getEmail())) {
                     UserManager::addUser($user);
                     if(null !== $user->getId()) {

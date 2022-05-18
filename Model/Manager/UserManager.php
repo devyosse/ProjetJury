@@ -10,7 +10,6 @@ use User;
 final class UserManager
 {
     public const TABLE = 'user';
-    public const TABLE_USER_ROLE = 'user_role';
 
     /**
      * Return all available users.
@@ -106,7 +105,8 @@ final class UserManager
             ->setUsername($data['username'])
             ->setAge($data['age'])
         ;
-        $user->setRole(RoleManager::getRoleByUser($user));
+        $role = RoleManager::getRoleById($data['role_fk']);
+        $user->setRole($role);
 
         return $user;
     }
@@ -127,7 +127,7 @@ final class UserManager
         $stmt->bindValue(':username', $user->getUsername());
         $stmt->bindValue(':password', $user->getPassword());
         $stmt->bindValue(':age', $user->getAge());
-        $stmt->bindValue(':role_fk', $user->getRole()->getId());
+        $stmt->bindValue(':role_fk', RoleManager::getRoleByName(RoleManager::ROLE_USER)->getId());
 
         $result = $stmt->execute();
         $user->setId(Database::getPDO()->lastInsertId());

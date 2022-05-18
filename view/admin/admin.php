@@ -1,9 +1,10 @@
 
 <h1>Bienvenue a toi Administrateur !</h1>
 
-<h2>Liste Utilisateurs</h2>
-
-<p>Stats Utlisateurs<a href="/index.php?c=user&a=show">Ici</a></p>
+<p>
+    <a class="button" href="/index.php?c=user&a=show">Liste des utlisateurs</a>
+    <a class="button" href="/index.php?c=user&a=show">Liste des produits</a>
+</p>
 
 <table>
     <thead>
