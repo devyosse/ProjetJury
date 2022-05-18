@@ -17,10 +17,12 @@ class Product
 
     /**
      * @param int $id
+     * @return Product
      */
-    public function setId(int $id): void
+    public function setId(int $id): self
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -33,10 +35,12 @@ class Product
 
     /**
      * @param string $name
+     * @return Product
      */
-    public function setName(string $name): void
+    public function setName(string $name): self
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -49,10 +53,12 @@ class Product
 
     /**
      * @param string $content
+     * @return Product
      */
-    public function setContent(string $content): void
+    public function setContent(string $content): self
     {
         $this->content = $content;
+        return $this;
     }
 
     /**
@@ -60,15 +66,18 @@ class Product
      */
     public function getDateRelease(): string
     {
-        return $this->dateRelease;
+        $dt = DateTime::createFromFormat('Y-m-d H:i:s', $this->dateRelease);
+        return $dt->format('m-d-Y');
     }
 
     /**
      * @param string $dateRelease
+     * @return Product
      */
-    public function setDateRelease(string $dateRelease): void
+    public function setDateRelease(string $dateRelease): self
     {
         $this->dateRelease = $dateRelease;
+        return $this;
     }
 
 

@@ -36,8 +36,14 @@ class AdminController extends AbstractController
     }
 
 
+    /**
+     * Show all products list.
+     * @return void
+     */
     public function showProductsList()
     {
-        $this->render('admin/products.php');
+        $this->render('admin/products.php', [
+            'products' => ProductManager::getAllProducts()
+        ]);
     }
 }
