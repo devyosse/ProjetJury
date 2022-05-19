@@ -54,31 +54,39 @@ class AdminController extends AbstractController
      */
     public function addProduct()
     {
-        self::redirectIfNotConnected();
+        self::redirectIfNotGranted(RoleManager::ROLE_ADMIN);
 
         if($this->isFormSubmitted()) {
 
-            // Getting Product data from form.
-            $title = $this->$this->getFormField('title');
-            $content = $this->$this->getFormField('content');
+            if(!isset($_POST['name'], $_POST['content'], $_POST['date_release'])) {
+                $_SESSION['errors'][] = "Tous les champs doivent être remplis";
+            }
+            else {
+                // Getting Product data from form.
+                $name = AbstractRouter::secure($this->getFormField('name'));
+                $content = AbstractRouter::secure($this->getFormField('content'));
+                $dateRelease = AbstractRouter::secure($this->getFormField('date_release'));
 
-            // Create a new Product entity (no persisted).
-            $article = new Product();
-            $article
-                ->setTitle($title)
-                ->setContent($content)
-                ->setAuthor($admin)
-            ;
+                if (strlen($name) > 2 && strlen($content) > 2 && strlen($dateRelease) > 2) {
+                $product = new Product();
+                $product
+                    ->setName($name)
+                    ->setContent($content)
+                    ->setDateRelease($dateRelease);
+                } else {
+                    $_SESSION['errors'][] = "Les champs doivent avoir du contenu";
+                }
 
-            // Saving new product
-            if(ProductManager::addNewProduct($product)) {
-                $this->render('admin/show-product', [
-                    'article' => $article,
-                ]);
+                // Saving new product
+                if (!isset($_SESSION['error']) && ProductManager::addProduct($product)) {
+                    $this->render('admin/edit-product.php', [
+                        'product' => $product,
+                    ]);
+                }
             }
         }
 
-        $this->render('article/add-product');
+        $this->render('admin/add-product.php');
     }
 
 
@@ -96,27 +104,27 @@ class AdminController extends AbstractController
             if(!isset($_POST['name'], $_POST['content'], $_POST['date_release'])) {
                 $_SESSION['errors'][] = "Tous les champs doivent être remplis";
             }
+            else {
+                $name = AbstractRouter::secure($_POST['name']);
+                $content = AbstractRouter::secure($_POST['content']);
+                $dateRelease = AbstractRouter::secure($_POST['date_release']);
 
-            $name = AbstractRouter::secure($_POST['name']);
-            $content = AbstractRouter::secure($_POST['content']);
-            $dateRelease = AbstractRouter::secure($_POST['date_release']);
+                if (strlen($name) > 2 && strlen($content) > 2 && strlen($dateRelease) > 2) {
+                    $product->setName($name);
+                    $product->setContent($content);
+                    if (DateTime::createFromFormat('Y-m-d', $dateRelease) === false) {
+                        $_SESSION['errors'][] = "Le format de date n'est pas correct";
+                    }
 
-            if(strlen($name) > 2 && strlen($content) > 2 && strlen($dateRelease) > 2) {
-                $product->setName($name);
-                $product->setContent($content);
-                if (DateTime::createFromFormat('Y-m-d', $dateRelease) === false) {
-                    $_SESSION['errors'][] = "Le format de date n'est pas correct";
+                    $product->setDateRelease($dateRelease);
+                } else {
+                    $_SESSION['errors'][] = "Les champs doivent avoir du contenu";
                 }
 
-                $product->setDateRelease($dateRelease);
-            }
-            else {
-                $_SESSION['errors'][] = "Les champs doivent avoir du contenu";
-            }
-
-            if(!isset($_SESSION['errors'])) {
-                ProductManager::updateProduct($product);
-                $_SESSION['success'][] = "Produit mis à jour";
+                if (!isset($_SESSION['errors'])) {
+                    ProductManager::updateProduct($product);
+                    $_SESSION['success'][] = "Produit mis à jour";
+                }
             }
         }
 
@@ -135,7 +143,9 @@ class AdminController extends AbstractController
     public function deleteProduct(int $id)
     {
         $this->redirectIfNotGranted(RoleManager::ROLE_ADMIN);
-
+        if(ProductManager::deleteProduct($id)) {
+            $_SESSION['success'][] = "Produit bien supprimé";
+        }
         $this->render('admin/products.php');
     }
 }

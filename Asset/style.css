@@ -10,16 +10,23 @@ body{
 }
 
 
-.error-message {
+.error-message, .success-message {
     position: absolute;;
     top: 0;
     left: 0;
-    background-color: indianred;
     color: white;
     font-weight: bold;
     padding: 20px;
     text-align: center;
     width: 100%;
+}
+
+.error-message {
+    background-color: indianred;
+}
+
+.success-message {
+    background-color: mediumaquamarine;
 }
 
 .nav-bar {

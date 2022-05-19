@@ -64,4 +64,38 @@ class ProductManager
 
         return $stmt->execute();
     }
+
+
+    /**
+     * Insert a new product.
+     * @param Product $product
+     * @return bool
+     */
+    public static function addProduct(Product &$product): bool
+    {
+        $stmt = Database::getPDO()->prepare('
+            INSERT INTO '.self::TABLE.' (name, content, date_release) VALUES (:name, :content, :date_release)
+        ');
+
+        $stmt->bindValue(":name", $product->getName());
+        $stmt->bindValue(":content", $product->getContent());
+        $stmt->bindValue(":date_release", $product->getDateRelease());
+
+        $result = $stmt->execute();
+        $product->setId(Database::getPDO()->lastInsertId());
+        return $result;
+    }
+
+
+    /**
+     * Delete a product.
+     * @param int $id
+     * @return bool
+     */
+    public static function deleteProduct(int $id): bool
+    {
+        $stmt = Database::getPDO()->prepare("DELETE FROM ". self::TABLE." WHERE id=:id");
+        $stmt->bindValue(":id", $id);
+        return $stmt->execute();
+    }
 }

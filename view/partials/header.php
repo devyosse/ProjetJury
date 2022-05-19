@@ -13,6 +13,7 @@
 
     use App\Controller\AbstractController;
 
+    // Error messages.
     if(isset($_SESSION['errors'])) {
         $errors = $_SESSION['errors'];
         unset($_SESSION['errors']);
@@ -20,6 +21,18 @@
         foreach($errors as $error) {?>
             <div class="error-message">
                 <?= $error ?>
+            </div><?php
+        }
+    }
+
+    // Success messages
+    if(isset($_SESSION['success'])) {
+        $successes = $_SESSION['success'];
+        unset($_SESSION['success']);
+
+        foreach($successes as $success) {?>
+            <div class="success-message">
+            <?= $success ?>
             </div><?php
         }
     }
