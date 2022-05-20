@@ -30,7 +30,7 @@ final class UserManager
 
 
     /**
-     * Return a user based on itus id.
+     * Return a user based on it us id.
      * @param int $id
      * @return User
      */

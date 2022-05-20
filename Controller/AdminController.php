@@ -87,6 +87,8 @@ class AdminController extends AbstractController
         }
 
         $this->render('admin/add-product.php');
+
+
     }
 
 

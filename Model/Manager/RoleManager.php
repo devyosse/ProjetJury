@@ -57,7 +57,7 @@ final class RoleManager
 
     /**
      * Return all given user roles.
-     * @param User $user
+     * @param int $roleId
      * @return Role
      */
     public static function getRoleById(int$roleId): Role

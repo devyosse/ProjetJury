@@ -39,7 +39,7 @@ abstract class AbstractController
      * @param $default
      * @return string
      */
-    public function getFormField(string $field, $default = null)
+    public function getFormField(string $field, $default = null): string
     {
         if (!isset($_POST[$field])) {
             return (null === $default) ? '' : $default;

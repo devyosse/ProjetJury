@@ -1,6 +1,6 @@
 <h1 class="homee">Accueil</h1>
 
-<h2 class="home-title">Bienvenue connecte-toi pour avoir accès au site dans son intégralité</h2>
+<h2 class="home-title">Bienvenue connecte-toi</h2>
 
 <p class="home-content">
     Tu es ici car tu te veux te renseigner sur les dernières actualités Samsung ? <br>

@@ -10,9 +10,10 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        // TODO => Rechercher les téléphones dans la base de données et les envoyer vers la home page.
         $this->render('home/home.php', [
             'products' => ProductManager::getAllProducts()
         ]);
     }
 }
+
+// TODO => Rechercher les téléphones dans la base de données et les envoyer vers la home page.
