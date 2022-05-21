@@ -31,7 +31,7 @@ switch ($page) {
         UserRouter::route($method);
         break;
     case 'product':
-        //ProductRouter::route($method);
+        ProductRouter::route($method);
         break;
     case 'admin':
         AdminRouter::route($method);
