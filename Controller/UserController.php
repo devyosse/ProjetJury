@@ -146,7 +146,7 @@ class UserController extends AbstractController
             session_destroy();
         }
 
-        $this->render('home/home.php');
+        (new \HomeController())->index();
     }
 
 

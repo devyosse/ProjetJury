@@ -13,7 +13,7 @@ class ProductManager
     public static function getAllProducts(): array
     {
         $products = [];
-        $result = Database::getPDO()->query("SELECT * FROM " . self::TABLE);
+        $result = Database::getPDO()->query("SELECT * FROM " . self::TABLE . ' ORDER BY id DESC');
         if($result->execute()) {
             foreach ($result->fetchAll() as $item) {
                 $products[] = (new Product)

@@ -79,9 +79,7 @@ class AdminController extends AbstractController
 
                 // Saving new product
                 if (!isset($_SESSION['error']) && ProductManager::addProduct($product)) {
-                    $this->render('admin/edit-product.php', [
-                        'product' => $product,
-                    ]);
+                    $this->showProductsList();
                 }
             }
         }
@@ -117,7 +115,6 @@ class AdminController extends AbstractController
                     if (DateTime::createFromFormat('Y-m-d', $dateRelease) === false) {
                         $_SESSION['errors'][] = "Le format de date n'est pas correct";
                     }
-
                     $product->setDateRelease($dateRelease);
                 } else {
                     $_SESSION['errors'][] = "Les champs doivent avoir du contenu";
@@ -126,6 +123,7 @@ class AdminController extends AbstractController
                 if (!isset($_SESSION['errors'])) {
                     ProductManager::updateProduct($product);
                     $_SESSION['success'][] = "Produit mis à jour";
+                    $this->showProductsList();
                 }
             }
         }
@@ -148,6 +146,6 @@ class AdminController extends AbstractController
         if(ProductManager::deleteProduct($id)) {
             $_SESSION['success'][] = "Produit bien supprimé";
         }
-        $this->render('admin/products.php');
+        $this->showProductsList();
     }
 }

@@ -73,7 +73,7 @@ abstract class AbstractController
     public function redirectIfNotConnected(): void
     {
         if (!self::isUserConnected()) {
-            $this->render('home/home.php');
+            (new \HomeController())->index();
         }
     }
 
@@ -83,7 +83,7 @@ abstract class AbstractController
     public function redirectIfConnected(): void
     {
         if (self::isUserConnected()) {
-            $this->render('home/home.php');
+            (new \HomeController())->index();
         }
     }
 
@@ -95,8 +95,7 @@ abstract class AbstractController
     public function redirectIfNotGranted(string $role): void
     {
         if (!self::isUserConnected() || $role !== ($_SESSION['user'])->getRole()->getRoleName()) {
-            $this->render('home/home.php');
-            return;
+            (new \HomeController())->index();
         }
     }
 }

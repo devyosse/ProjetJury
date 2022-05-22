@@ -28,7 +28,7 @@ class AdminRouter extends AbstractRouter
                 self::execRouteWithParameters($controller, 'editProduct', ['id' => 'int']);
                 break;
             case 'delete-product':
-                self::execRouteWithParameters($controller, 'deleteProduct', ['id', 'int']);
+                self::execRouteWithParameters($controller, 'deleteProduct', ['id' => 'int']);
                 break;
             default:
                 (new ErrorController())->error404($action);
