@@ -9,8 +9,7 @@ $products = $data['products'] ?? [];
         <select name="comment-article" id="comment-article"><?php
             foreach($products as $product) { ?>
                 <option value="<?= $product->getId() ?>"><?= $product->getName() ?></option> <?php
-            }
-            ?>
+            } ?>
         </select>
     </div>
     <div>
