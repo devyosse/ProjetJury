@@ -1,6 +1,7 @@
 <?php
 
 use App\Controller\AbstractController;
+use App\Manager\CommentManager;
 
 class HomeController extends AbstractController
 {
@@ -11,7 +12,8 @@ class HomeController extends AbstractController
     public function index()
     {
         $this->render('home/home.php', [
-            'products' => ProductManager::getAllProducts()
+            'products' => ProductManager::getAllProducts(),
+            'comments' => CommentManager::getComments(),
         ]);
     }
 }

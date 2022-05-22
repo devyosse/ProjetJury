@@ -22,7 +22,6 @@ if($method === null) {
 
 
 // Defining the right controller.
-
 switch ($page) {
     case 'home':
         HomeRouter::route();
@@ -30,8 +29,8 @@ switch ($page) {
     case 'user':
         UserRouter::route($method);
         break;
-    case 'product':
-        ProductRouter::route($method);
+    case 'comment':
+        CommentRouter::route($method);
         break;
     case 'admin':
         AdminRouter::route($method);

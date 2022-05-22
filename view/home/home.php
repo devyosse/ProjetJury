@@ -8,7 +8,14 @@
     Ainsi tu pourra choisir le smartphone qui te correspond le mieux.
 </p>
 
+<p class="home-content">
+    <a class="comment-link" href="/index.php?c=comment&a=add-comment">Ajouter un commentaire</a>
+</p>
+
 <div class="container"> <?php
+
+    use App\Controller\AbstractController;
+
     foreach ($data['products'] as $product) { ?>
         <div class="phone-detail">
             <h2><?= $product->getName() ?></h2>
@@ -18,5 +25,30 @@
             <p><?= $product->getContent() ?></p>
         </div> <?php
     }
+
+    $comments = $data['comments'] ?? [];
     ?>
+    <h2>Commentaires</h2>
+    <div class="comments"> <?php
+        foreach ($comments as $comment) { ?>
+            <div class="comment">
+                <h3><?= $comment->getProduct()->getName() ?></h3>
+                <p><?= $comment->getContent() ?></p>
+                <small><?= $comment->getAuthor()->getUsername() ?></small> <?php
+                if( AbstractController::isUserConnected() &&
+                    ($comment->getAuthor()->getId() === $_SESSION['user']->getId() ||
+                    AbstractController::isUserAdmin())
+                ) { ?>
+                    <a href="/index.php?c=comment&a=edit-comment&id=<?= $comment->getId() ?>">
+                        Editer
+                    </a>
+                    <a href="/index.php?c=comment&a=delete-comment&id=<?= $comment->getId() ?>">
+                        Supprimer
+                    </a> <?php
+                }
+                ?>
+            </div>
+            <hr><?php
+        } ?>
+    </div>
 </div>
