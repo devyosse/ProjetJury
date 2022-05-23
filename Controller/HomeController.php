@@ -18,4 +18,3 @@ class HomeController extends AbstractController
     }
 }
 
-// TODO => Rechercher les téléphones dans la base de données et les envoyer vers la home page.
