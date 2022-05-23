@@ -2,7 +2,7 @@
     <table>
         <thead>
         <tr>
-            <th>Nom utilisateur</th>
+            <th class="user-name">Nom utilisateur</th>
             <th></th>
         </tr>
         </thead>

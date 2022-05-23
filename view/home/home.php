@@ -28,7 +28,7 @@
 
     $comments = $data['comments'] ?? [];
     ?>
-    <h2>Commentaires</h2>
+    <h2 class="comment-title">Commentaires</h2>
     <div class="comments"> <?php
         foreach ($comments as $comment) { ?>
             <div class="comment">
@@ -39,12 +39,12 @@
                     ($comment->getAuthor()->getId() === $_SESSION['user']->getId() ||
                     AbstractController::isUserAdmin())
                 ) { ?>
-                    <a href="/index.php?c=comment&a=edit-comment&id=<?= $comment->getId() ?>">
+                    <a href="/index.php?c=comment&a=edit-comment&id=<?= $comment->getId() ?>" class="edit-comm-button">
                         Editer
                     </a>
-                    <a href="/index.php?c=comment&a=delete-comment&id=<?= $comment->getId() ?>">
+                    <a href="/index.php?c=comment&a=delete-comment&id=<?= $comment->getId() ?>" class="delete-comm-button">
                         Supprimer
-                    </a> <?php
+                    </a > <?php
                 }
                 ?>
             </div>

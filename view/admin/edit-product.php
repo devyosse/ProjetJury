@@ -1,4 +1,4 @@
-<h1>Modifier un Samsung.</h1>
+<h1 class="edit-product-title">Modifier un Samsung.</h1>
 
 <?php
 if(null === $data['product']) { ?>
@@ -6,7 +6,7 @@ if(null === $data['product']) { ?>
 }
 else {
     $product = $data['product']; ?>
-    <form action="/index.php?c=admin&a=edit-product&id=<?= $product->getId() ?>" method="post">
+    <form action="/index.php?c=admin&a=edit-product&id=<?= $product->getId() ?>" method="post" class="edit-product-form">
         <div>
             <label for="title">Nom du Samsung</label>
             <input type="text" name="name" id="name" value="<?= $product->getName() ?>">
@@ -19,6 +19,6 @@ else {
             <textarea name="content" id="content" cols="30" rows="20"><?= $product->getContent() ?></textarea>
         </div>
 
-        <input type="submit" name="send-form" value="Enregistrer">
+        <input type="submit" name="send-form" value="Enregistrer" class="edit-product-button">
     </form> <?php
 }

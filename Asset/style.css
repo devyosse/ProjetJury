@@ -49,9 +49,7 @@ a {
     padding-left: 10%;
     font-size: 25px;
 }
-.homee {
-    text-align: center;
-}
+
 
 #home {
     text-decoration: none;
@@ -203,12 +201,18 @@ a {
 }
 
 .home-title, .home-content, .container, .home {
-    margin-top: 2%;
-    text-align: center;
+   width: 75%;
+    margin-bottom: 40px;
+    margin-left: 5%;
 }
 
-
-.button {
+.home-title, .home-content {
+    text-align: center;
+}
+.homee {
+    margin-left: 38%;
+}
+.button, .edit-comm-button, .delete-comm-button {
    background-color: orange;
    border-radius: 12px;
    color: #000;
@@ -226,20 +230,117 @@ a {
    touch-action: manipulation;
 }
 
-.button:not(:disabled):hover, .button:not(:disabled):focus {
+
+.button:not(:disabled):hover, .button:not(:disabled):focus, .delete-comm-button:not(:disabled):hover, .edit-comm-button:not(:disabled):hover {
     outline: 0;
     background: orange;
     box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
 }
 
-.button:disabled {
+.button:disabled, .edit-comm-button:disabled, .delete-comm-button:disabled {
     filter: saturate(0.2) opacity(0.5);
     -webkit-filter: saturate(0.2) opacity(0.5);
     cursor: not-allowed;
 }
 
+.delete-comm-button {
+    margin-left: 3%;
+}
+.comment-title {
+    text-align: center;
+    margin-top: 5%;
+}
+
 .users-list td {
     padding: 15px;
+}
+
+.users-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 15%;
+}
+
+.add-product-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    flex-wrap: wrap;
+}
+.user-name {
+    font-size: 20px;
+}
+textarea {
+    color: darkgrey;
+    border: 2px solid orange;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 4px 4px 6px 6px;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input {
+    text-decoration-line: none;
+    color: darkgrey;
+    border: 2px solid orange;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 4px 4px 6px 6px;
+}
+
+.add-product-button {
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration-line: none;
+    padding: 5px;
+}
+
+.add-product-title{
+    text-align: center;
+}
+
+.edit-product-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    flex-wrap: wrap;
+}
+
+.edit-product-button {
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration-line: none;
+    padding: 5px;
+}
+
+.edit-product-title {
+    text-align: center;
+}
+
+.admin-title {
+    text-align: center;
+    margin-top: 12%;
+}
+
+.admin-link {
+    text-align: center;
+    margin-top: 7%;
 }
 
 @media  screen and (max-width: 330px){
